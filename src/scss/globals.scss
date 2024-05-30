@@ -1,0 +1,103 @@
+// ФУНКЦИИ====================================================================
+@import "./settings/functions";
+
+// </ФУНКЦИИ>=================================================================
+
+// <Подключаем шрифты>========================================================
+@import "./settings/fonts";
+
+// </Подключаем шрифты>=======================================================
+
+// <ОБНУЛЕНИЕ>================================================================
+@import "./settings/normalize";
+
+// </ОБНУЛЕНИЕ>===============================================================
+
+// <ПЕРЕМЕННЫЕ>===============================================================
+$containerWidth: 120rem;
+
+:root {
+  // Base
+  --font-family: "", sans-serif;
+  --font-weight: 400;
+  --content-width: 117rem;
+  --container-offset: 1.5rem;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --transition: 0.3s;
+
+  // Colors
+  --clr-default-100: #fff;
+  --clr-default-900: #000000;
+}
+
+// </ПЕРЕМЕННЫЕ>==============================================================
+
+// <ОБОЛОЧКИ>================================================================
+body {
+  font-size: 1.6rem;
+  color: var(--clr-default-400);
+
+  &.lock {
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    -ms-touch-action: none;
+    touch-action: none;
+    overscroll-behavior: none;
+
+    .header {
+      overflow: initial;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 32rem;
+  min-height: 100%;
+
+  &.no-overflow {
+    overflow: initial;
+  }
+}
+
+// </ОБОЛОЧКИ>===============================================================
+
+// <СТИЛИ>===================================================================
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--container-offset);
+  padding-left: var(--container-offset);
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+// Components - UI
+@import "./ui";
+@import "./stack";
+@import "./components/ui/typography";
+// Components - UI
+
+// Components - Cards
+// Components - Cards
+
+// Components - Sections
+@import "./components/sections/header";
+@import "./components/sections/footer";
+// Components - Sections
+
+// Components - Common
+// Components - Common
+
+// Components - Pages
+@import "./components/pages/home/hero";
+// Components - Pages

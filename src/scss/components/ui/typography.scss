@@ -1,0 +1,72 @@
+.typography {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 120%;
+    color: inherit;
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
+
+  &.h1 {
+    font-size: fluid(7rem, 3.2rem);
+    line-height: 120%;
+  }
+
+  &.h2 {
+    font-size: fluid(4rem, 3rem);
+    line-height: 115%;
+  }
+
+  &.h3 {
+    font-size: fluid(3rem, 2.2rem);
+    line-height: 115%;
+  }
+
+  &.h4 {
+    font-size: fluid(2.4rem, 2rem);
+    line-height: 115%;
+  }
+
+  &.p {
+    font-size: fluid(1.8rem, 1.6rem);
+    line-height: 150%;
+  }
+
+  &.w-400 {
+    font-weight: 400;
+  }
+
+  &.w-600 {
+    font-weight: 600;
+  }
+
+  &.w-700 {
+    font-weight: 700;
+  }
+
+  &.black {
+    color: var(--clr-default-900);
+  }
+
+  &.light {
+    color: var(--clr-default-100);
+  }
+
+  &.error {
+    color: red;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-uppercase {
+    text-transform: uppercase;
+  }
+}
