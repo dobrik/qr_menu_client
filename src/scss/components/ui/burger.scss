@@ -1,0 +1,45 @@
+.burger {
+  display: none;
+
+  $width: 2.5rem;
+  $height: 1.6rem;
+  $bgColor: var(--clr-default-100);
+  $burgerLineHeight: 0.2rem;
+
+  @media (max-width: em(960)) {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: $width;
+    height: $height;
+    background-color: transparent;
+
+    &::after,
+    &::before,
+    span {
+      content: "";
+      position: absolute;
+      border-radius: 1rem;
+      width: 100%;
+      height: $burgerLineHeight;
+      background-color: $bgColor;
+    }
+
+    &::before {
+      right: 0;
+      top: 0;
+      transition: transform var(--transition), top var(--transition);
+    }
+
+    &::after {
+      bottom: 0;
+      transition: transform var(--transition), bottom var(--transition);
+    }
+
+    span {
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform var(--transition);
+    }
+  }
+}

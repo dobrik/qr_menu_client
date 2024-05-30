@@ -10,6 +10,7 @@ export const Typography = (props) => {
     center,
     dangerouslySetInnerHTML,
     children,
+    verticalLine,
     ...rest
   } = props;
 
@@ -30,12 +31,11 @@ export const Typography = (props) => {
       400: " w-400",
       600: " w-600",
       700: " w-700",
+      900: " w-900",
     };
 
     const COLOR = {
-      black: " black",
-      light: " light",
-      error: " error",
+      dark: " dark",
     };
 
     classes += variant ? VARIANT?.[variant] : "";
@@ -48,6 +48,10 @@ export const Typography = (props) => {
 
     if (typeof center === "boolean") {
       classes += " text-center";
+    }
+
+    if (typeof verticalLine === "boolean") {
+      classes += " vertical-line";
     }
 
     return classes;

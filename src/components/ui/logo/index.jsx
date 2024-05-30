@@ -12,7 +12,7 @@ export const Logo = (props) => {
   return (
     <div className={logoClassName}>
       <Link href="/">
-        <img src={src} width="" height="" alt="" loading="" />
+        <img src={src} width="150" height="40" alt="Logotype" loading="eager" />
       </Link>
     </div>
   );

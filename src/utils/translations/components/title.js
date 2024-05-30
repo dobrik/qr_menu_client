@@ -1,5 +1,6 @@
 export const title = {
   en: {
-    hello: "Hello",
+    restaurant: "Restaurant Name",
+    about: "About Place",
   },
 };

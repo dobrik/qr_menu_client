@@ -1,7 +1,7 @@
 export const MENU = {
-  one: "/#anchor",
+  home: "/#home",
 
-  two: "/#anchor",
+  menu: "/#menu",
 
-  three: "/#anchor",
+  about: "/#about",
 };

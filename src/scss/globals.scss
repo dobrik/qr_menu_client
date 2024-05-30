@@ -27,7 +27,20 @@ $containerWidth: 120rem;
 
   // Colors
   --clr-default-100: #fff;
+  --clr-default-300: #cccccc;
+  --clr-default-400: #d8d8d8;
+  --clr-default-500: rgba(155, 154, 157, 0.6);
+  --clr-default-600: rgba(0, 0, 0, 0.25);
   --clr-default-900: #000000;
+
+  --clr-text-500: #383838;
+  --clr-text-600: #333232;
+
+  --clr-primary-400: #bebebe;
+  --clr-primary-600: #ed8a19;
+  --clr-primary-500: #cb2929;
+
+  --clr-bg-400: #100f1f;
 }
 
 // </ПЕРЕМЕННЫЕ>==============================================================
@@ -35,7 +48,8 @@ $containerWidth: 120rem;
 // <ОБОЛОЧКИ>================================================================
 body {
   font-size: 1.6rem;
-  color: var(--clr-default-400);
+  color: var(--clr-default-100);
+  background-color: var(--clr-bg-400);
 
   &.lock {
     overflow: hidden;
@@ -44,6 +58,14 @@ body {
     -ms-touch-action: none;
     touch-action: none;
     overscroll-behavior: none;
+
+    .wrapper {
+      &::before {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: initial;
+      }
+    }
 
     .header {
       overflow: initial;
@@ -63,6 +85,22 @@ main {
   width: 100%;
   min-width: 32rem;
   min-height: 100%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-default-600);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), visibility var(--transition);
+    pointer-events: none;
+    backdrop-filter: blur(0.25rem);
+  }
 
   &.no-overflow {
     overflow: initial;
@@ -85,6 +123,12 @@ main {
 @import "./ui";
 @import "./stack";
 @import "./components/ui/typography";
+@import "./components/ui/logo";
+@import "./components/ui/burger";
+@import "./components/ui/burger-menu";
+@import "./components/ui/menu";
+@import "./components/ui/line-wrapper";
+@import "./components/ui/line";
 // Components - UI
 
 // Components - Cards
@@ -100,4 +144,5 @@ main {
 
 // Components - Pages
 @import "./components/pages/home/hero";
+@import "./components/pages/home/info";
 // Components - Pages

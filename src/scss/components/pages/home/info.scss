@@ -1,0 +1,41 @@
+.info {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  &__wrapper {
+    gap: 3rem;
+  }
+
+  &__text-wrapper {
+    gap: 1.5rem;
+  }
+
+  &__text {
+    gap: 0.8rem;
+  }
+
+  &__about {
+    gap: 1rem;
+  }
+
+  &__table {
+    table {
+      border-collapse: collapse;
+
+      td {
+        &:first-child {
+          width: 15rem;
+        }
+      }
+    }
+  }
+
+  &__day {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+  }
+
+  &__contact {
+    gap: 1.5rem;
+  }
+}

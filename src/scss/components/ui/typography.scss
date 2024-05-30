@@ -14,12 +14,12 @@
   }
 
   &.h1 {
-    font-size: fluid(7rem, 3.2rem);
+    font-size: fluid(4rem, 3.2rem);
     line-height: 120%;
   }
 
   &.h2 {
-    font-size: fluid(4rem, 3rem);
+    font-size: fluid(2.5rem, 1.8rem);
     line-height: 115%;
   }
 
@@ -35,7 +35,7 @@
 
   &.p {
     font-size: fluid(1.8rem, 1.6rem);
-    line-height: 150%;
+    line-height: 128%;
   }
 
   &.w-400 {
@@ -50,16 +50,27 @@
     font-weight: 700;
   }
 
-  &.black {
-    color: var(--clr-default-900);
+  &.w-900 {
+    font-weight: 900;
   }
 
-  &.light {
-    color: var(--clr-default-100);
+  &.dark {
+    color: var(--clr-default-400);
   }
 
-  &.error {
-    color: red;
+  &.vertical-line {
+    position: relative;
+    padding-left: 1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0.1rem;
+      height: 100%;
+      background-color: var(--clr-default-100);
+    }
   }
 
   &.text-center {

@@ -2,12 +2,11 @@ import Head from "next/head";
 import { MainLayuot } from "@layouts";
 import { Home } from "@pages/home";
 
-
 const Page = () => {
   return (
     <>
       <Head>
-        <title>Next</title>
+        <title>Menu</title>
         <meta name="description" content="description" />
       </Head>
       <Home />
@@ -15,6 +14,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => <MainLayuot overflow={false} >{page}</MainLayuot>
+Page.getLayout = (page) => <MainLayuot overflow={false}>{page}</MainLayuot>;
 
 export default Page;
