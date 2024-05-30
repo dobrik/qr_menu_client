@@ -1,0 +1,14 @@
+.likes-button {
+  width: max-content;
+  svg {
+    fill: var(--clr-primary-400);
+    transition: fill var(--transition);
+  }
+
+  &.active {
+    svg {
+      fill: var(--clr-primary-500);
+      transition: fill var(--transition);
+    }
+  }
+}

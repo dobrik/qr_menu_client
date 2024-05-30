@@ -6,6 +6,7 @@ export const subtitle = {
     delivery: "Delivery",
     booking: "Booking",
     admin: "Administrator",
+    food: "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.",
     about:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.",
   },

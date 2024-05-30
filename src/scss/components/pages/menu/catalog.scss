@@ -1,0 +1,32 @@
+.catalog {
+  padding-bottom: 5rem;
+
+  &__content {
+    gap: 6rem;
+    padding-top: 3rem;
+  }
+
+  &__block {
+    gap: 3rem;
+  }
+
+  &__list {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: em(992)) {
+      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: em(767)) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: em(575)) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

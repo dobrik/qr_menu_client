@@ -5,5 +5,8 @@ export * from "./image";
 export * from "./burger";
 export * from "./burger-menu";
 export * from "./container";
+export * from "./horizontal-menu";
+export * from "./horizontal-item";
+export * from "./likes-button";
 export * from "./line-wrapper";
 export * from "./line";

@@ -1,7 +1,7 @@
 export const MENU = {
-  home: "/#home",
+  home: "/",
 
-  menu: "/#menu",
+  menu: "/menu",
 
   about: "/#about",
 };

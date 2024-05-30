@@ -1,0 +1,22 @@
+.horizontal-item {
+  border-radius: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  min-width: 12rem;
+  min-height: 3rem;
+  background-color: var(--clr-default-300);
+  transition: color var(--transition), background-color var(--transition);
+
+  &__text {
+    color: var(--clr-text-600);
+  }
+
+  &.active {
+    .horizontal-item__text {
+      color: var(--clr-default-100);
+    }
+
+    background-color: var(--clr-primary-500);
+    transition: color var(--transition), background-color var(--transition);
+  }
+}

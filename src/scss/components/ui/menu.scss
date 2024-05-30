@@ -32,8 +32,10 @@
       }
     }
 
-    &:active a {
-      color: var(--clr-primary-500v);
+    &.active {
+      .menu__item-link {
+        color: var(--clr-primary-500);
+      }
     }
   }
 }
