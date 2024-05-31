@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const MenuCard = (props) => {
   //props
-  const { newFood, src, name, description, price, rating, id } = props;
+  const { newFood, src, name, description, price, weight, rating, id } = props;
 
   return (
     <div className="menu-card">
@@ -34,6 +34,9 @@ export const MenuCard = (props) => {
           <div className="menu-card__info stack align-center justify-space-between">
             <Typography className="menu-card__price" tag="span" color="dark">
               {price} ₴
+            </Typography>
+            <Typography className="menu-card__price" tag="span" color="dark">
+              {weight} kg
             </Typography>
             <div className="menu-card__rating stack align-center">
               <Image

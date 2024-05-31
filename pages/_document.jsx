@@ -1,6 +1,10 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
+import bg from "bg.json";
+
 const Document = () => {
+  const { backgroundColor } = bg;
+
   return (
     <Html lang="en">
       <Head>
@@ -11,7 +15,7 @@ const Document = () => {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body>
+      <body style={{ backgroundColor }}>
         <Main />
         <NextScript />
       </body>

@@ -1,23 +1,13 @@
 import { useState } from "react";
 import { Typography } from "..";
+import Link from "next/link";
 
 export const HorizontalItem = (props) => {
   //**props
-  const { name } = props;
-
-  // State to manage active class
-  const [isActive, setIsActive] = useState(false);
-
-  // Click handler to toggle active class
-  const handleClick = () => {
-    setIsActive(!isActive);
-  };
+  const { name, href } = props;
 
   return (
-    <button
-      className={`horizontal-item stack center ${isActive ? "active" : ""}`}
-      onClick={handleClick}
-    >
+    <Link className={`horizontal-item stack center `} href={href}>
       <Typography
         className="horizontal-item__text"
         tag="p"
@@ -26,6 +16,6 @@ export const HorizontalItem = (props) => {
       >
         {name}
       </Typography>
-    </button>
+    </Link>
   );
 };

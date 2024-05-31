@@ -5,6 +5,7 @@ export const CATALOG = [
     name: "Food name1",
     price: 141,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.11",
   },
@@ -14,6 +15,7 @@ export const CATALOG = [
     name: "Food name2",
     price: 148,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.22",
   },
@@ -23,6 +25,7 @@ export const CATALOG = [
     name: "Food name3",
     price: 170,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.33",
   },
@@ -32,6 +35,7 @@ export const CATALOG = [
     name: "Food name4",
     price: 130,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.44",
   },
@@ -41,6 +45,7 @@ export const CATALOG = [
     name: "Food name5",
     price: 178,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.55",
   },
@@ -50,6 +55,7 @@ export const CATALOG = [
     name: "Food name6",
     price: 165,
     rating: 4.2,
+    weight: 50,
     description:
       "Lorem ipsum dolor sit amet consectetur. Turpis viverra elementum mattis lacinia donec feugiat pellentesque. Maecenas tellus vel consectetur sed. Id pellentesque neque non ac vitae. Sagittis tempor ultrices sollicitudin enim.66",
   },

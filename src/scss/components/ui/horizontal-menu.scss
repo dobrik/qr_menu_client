@@ -12,12 +12,12 @@
   &::-webkit-scrollbar {
     border-radius: 1rem;
     height: 0.5rem;
-    background-color: var(--clr-default-600);
+    background-color: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background-color: var(--clr-primary-500);
+    background-color: transparent;
   }
 
   &__fake {
