@@ -220,7 +220,7 @@ export const Info = () => {
                       />
                     </g>
                     <defs>
-                      <clipPath id="clip0_13_1065">
+                      <clipPath>
                         <rect width="9" height="10" fill="white" />
                       </clipPath>
                     </defs>
@@ -256,7 +256,7 @@ export const Info = () => {
                       />
                     </g>
                     <defs>
-                      <clipPath id="clip0_13_1065">
+                      <clipPath>
                         <rect width="9" height="10" fill="white" />
                       </clipPath>
                     </defs>
@@ -292,7 +292,7 @@ export const Info = () => {
                       />
                     </g>
                     <defs>
-                      <clipPath id="clip0_13_1065">
+                      <clipPath>
                         <rect width="9" height="10" fill="white" />
                       </clipPath>
                     </defs>
