@@ -88,7 +88,7 @@ export const Catalog = () => {
                 <Line />
               </LineWrapper>
 
-              <ul className="catalog__list">
+              <ul className={`catalog__list ${grid ? "grid" : "row"}`}>
                 {CATALOG.map(
                   ({ id, src, name, price, rating, description }) => (
                     <li key={id}>
