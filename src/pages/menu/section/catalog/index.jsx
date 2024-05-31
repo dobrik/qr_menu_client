@@ -90,7 +90,7 @@ export const Catalog = () => {
 
               <ul className={`catalog__list ${grid ? "grid" : "row"}`}>
                 {CATALOG.map(
-                  ({ id, src, name, price, rating, description }) => (
+                  ({ id, src, name, price, rating, weight, description }) => (
                     <li key={id}>
                       <MenuCard
                         newFood
@@ -99,6 +99,7 @@ export const Catalog = () => {
                         name={name}
                         description={description}
                         price={price}
+                        weight={weight}
                         rating={rating}
                       />
                     </li>
