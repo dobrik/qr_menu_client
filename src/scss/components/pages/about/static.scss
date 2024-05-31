@@ -1,0 +1,60 @@
+.static {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 5rem;
+  padding-left: 1.5rem;
+  max-width: 120rem;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 115%;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: fluid(4rem, 3.2rem);
+  }
+
+  h2 {
+    font-size: fluid(3.2rem, 2.4rem);
+  }
+
+  h3 {
+    font-size: fluid(2.4rem, 2rem);
+  }
+
+  h4 {
+    font-size: fluid(2rem, 1.8rem);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    p {
+      line-height: 133%;
+      color: var(--clr-default-400);
+    }
+  }
+
+  img {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+}

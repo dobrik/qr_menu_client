@@ -3,5 +3,5 @@ export const MENU = {
 
   menu: "/menu",
 
-  about: "/#about",
+  about: "/about",
 };
