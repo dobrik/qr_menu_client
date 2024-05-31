@@ -1,4 +1,11 @@
-import { Burger, BurgerMenu, Container, Logo, Menu } from "@components/ui";
+import {
+  Burger,
+  BurgerMenu,
+  Container,
+  Language,
+  Logo,
+  Menu,
+} from "@components/ui";
 import { useState } from "react";
 
 export const Header = () => {
@@ -23,6 +30,7 @@ export const Header = () => {
             <div className="header__navigation stack align-center">
               <Menu className="header__menu" />
               <Burger openMenu={openMenu} isMenuOpen={isMenuOpen} />
+              <Language />
             </div>
           </div>
         </Container>

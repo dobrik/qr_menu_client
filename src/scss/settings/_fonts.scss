@@ -1,35 +1,53 @@
-@font-face {
-  src: url("/fonts/Lato-Regular.woff2") format("woff2");
-  font-family: "Lato";
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
 }
-@font-face {
-  src: url("/fonts/Onest-Medium.woff2") format("woff2");
-  font-family: "Onest";
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
 }
-@font-face {
-  src: url("/fonts/Onest-Regular.woff2") format("woff2");
-  font-family: "Onest";
-  font-weight: 400;
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   font-style: normal;
-  font-display: swap;
 }
-@font-face {
-  src: url("/fonts/OpenSauceOne-Medium.woff2") format("woff2");
-  font-family: "Open Sauce One";
-  font-weight: 500;
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
   font-style: normal;
-  font-display: swap;
 }
-@font-face {
-  src: url("/fonts/OpenSauceOne-Regular.woff2") format("woff2");
-  font-family: "Open Sauce One";
-  font-weight: 400;
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
   font-style: normal;
-  font-display: swap;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
 }

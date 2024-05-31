@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Image, LikesButton, Typography } from "@components/ui";
+import { Image, LikesButton, Preloader, Typography } from "@components/ui";
 import { CATALOG } from "@utils";
 import { useTranslation } from "@hooks";
 import Link from "next/link";
@@ -8,12 +8,11 @@ const MenuItem = ({ menuItem }) => {
   const router = useRouter();
 
   const t = useTranslation();
-  // Если страница все еще генерируется на сервере, отображаем индикатор загрузки
+
   if (router.isFallback) {
-    return <div>Loading...</div>;
+    return <Preloader />;
   }
 
-  // Данные карточки товара передаются через props
   const { name, src, description, price, rating } = menuItem;
 
   return (
@@ -103,7 +102,6 @@ const MenuItem = ({ menuItem }) => {
 };
 
 export async function getStaticPaths() {
-  // Создаем массив путей
   const paths = CATALOG.map((item) => ({
     params: { product: item.id.toString() },
   }));

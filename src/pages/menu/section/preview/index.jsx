@@ -8,7 +8,7 @@ export const Preview = () => {
     <section className="preview stack column">
       <Image
         className="preview__bg"
-        src="img/menu/menu-bg.png"
+        src="/img/menu/menu-bg.png"
         width="1920"
         height="500"
         alt="Hero background"

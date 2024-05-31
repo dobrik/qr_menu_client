@@ -10,6 +10,10 @@
   padding-left: 1.5rem;
   max-width: 120rem;
 
+  &__loader {
+    max-width: 50rem;
+  }
+
   h1,
   h2,
   h3,
@@ -19,14 +23,17 @@
   }
 
   h1 {
+    font-weight: 900;
     font-size: fluid(4rem, 3.2rem);
   }
 
   h2 {
+    font-weight: 700;
     font-size: fluid(3.2rem, 2.4rem);
   }
 
   h3 {
+    font-weight: 700;
     font-size: fluid(2.4rem, 2rem);
   }
 

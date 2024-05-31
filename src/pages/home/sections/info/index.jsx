@@ -8,7 +8,7 @@ export const Info = () => {
       <Container>
         <div className="info__wrapper stack column">
           <div className="info__text stack column">
-            <Typography tag="h1" variant="h1" center>
+            <Typography tag="h1" variant="h1" weight="900" center>
               {t.title.restaurant}
             </Typography>
             <div className="info__text-wrapper stack align-center">
@@ -43,7 +43,7 @@ export const Info = () => {
 
           <div className="info__about stack column">
             <LineWrapper>
-              <Typography tag="h2" variant="h2">
+              <Typography tag="h2" variant="h2" weight="700">
                 {t.title.about}
               </Typography>
               <Line />

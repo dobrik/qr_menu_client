@@ -18,7 +18,7 @@ $containerWidth: 120rem;
 
 :root {
   // Base
-  --font-family: "", sans-serif;
+  --font-family: "Poppins", sans-serif;
   --font-weight: 400;
   --content-width: 117rem;
   --container-offset: 1.5rem;
@@ -30,7 +30,7 @@ $containerWidth: 120rem;
   --clr-default-300: #cccccc;
   --clr-default-400: #d8d8d8;
   --clr-default-500: rgba(155, 154, 157, 0.6);
-  --clr-default-600: rgba(0, 0, 0, 0.25);
+  --clr-default-600: rgba(0, 0, 0, 0.5);
   --clr-default-900: #000000;
 
   --clr-text-500: #383838;
@@ -128,8 +128,10 @@ main {
 @import "./components/ui/burger";
 @import "./components/ui/burger-menu";
 @import "./components/ui/menu";
+@import "./components/ui/preloader";
 @import "./components/ui/horizontal-menu";
 @import "./components/ui/horizontal-item";
+@import "./components/ui/language";
 @import "./components/ui/line-wrapper";
 @import "./components/ui/line";
 @import "./components/ui/likes-button";

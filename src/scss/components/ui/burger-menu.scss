@@ -60,6 +60,16 @@
 
     .menu__item {
       width: 100%;
+
+      &.active {
+        .menu__item-link {
+          color: var(--clr-primary-500);
+        }
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     .menu__item-link {

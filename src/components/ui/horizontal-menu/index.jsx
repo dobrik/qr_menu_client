@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { Container } from "..";
+import { useEffect, useState } from "react";
 
 export const HorizontalMenu = (props) => {
   //**props
@@ -8,8 +7,6 @@ export const HorizontalMenu = (props) => {
   //** Sticky
   const [isSticky, setIsSticky] = useState(false);
   const [stickyOffset, setStickyOffset] = useState(0);
-
-  console.log(isSticky);
 
   useEffect(() => {
     const horizontal = document.querySelector(".horizontal-menu");

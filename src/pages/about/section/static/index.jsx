@@ -1,4 +1,4 @@
-import { Container, Image } from "@components/ui";
+import { Image } from "@components/ui";
 import { useTranslation } from "@hooks";
 
 export const Static = () => {
@@ -18,7 +18,7 @@ export const Static = () => {
         <h3>{t.title.statich3}</h3>
         <p>{t.subtitle.about}</p>
       </div>
-      <Image src="img/about/about.jpg" width="800" height="425" alt="Dish" />
+      <Image src="/img/about/about.jpg" width="800" height="425" alt="Dish" />
       <div>
         <h4>{t.title.statich4}</h4>
         <ul>

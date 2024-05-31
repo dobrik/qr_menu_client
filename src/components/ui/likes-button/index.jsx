@@ -11,7 +11,8 @@ export const LikesButton = (props) => {
   const [isActive, setIsActive] = useState(false);
 
   // Click handler to toggle active class
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.stopPropagation();
     setIsActive(!isActive);
   };
 

@@ -33,8 +33,9 @@
     }
 
     &.active {
-      .menu__item-link {
-        color: var(--clr-primary-500);
+      &::before {
+        width: 100%;
+        transition: width var(--transition);
       }
     }
   }

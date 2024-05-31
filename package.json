@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^4.2.1",
     "next": "^13.3.1",
     "node-sass": "9.0.0",
     "nodemailer": "^6.9.1",

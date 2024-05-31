@@ -1,7 +1,6 @@
 .header {
   padding-top: 3rem;
   min-height: 7rem;
-  backdrop-filter: blur(0.2rem);
 
   &__wrapper {
     gap: 2.5rem;
@@ -9,6 +8,15 @@
 
   &__navigation {
     gap: 3rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    backdrop-filter: blur(0.4rem);
+
+    @media (max-width: em(992)) {
+      border-radius: initial;
+      padding: initial;
+      backdrop-filter: initial;
+    }
   }
 
   &__menu {
@@ -19,6 +27,5 @@
 
   @media (max-width: em(992)) {
     padding-top: 2rem;
-    backdrop-filter: initial;
   }
 }

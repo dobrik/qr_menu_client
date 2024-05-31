@@ -16,6 +16,7 @@
   &.h1 {
     font-size: fluid(4rem, 3.2rem);
     line-height: 120%;
+    letter-spacing: 0.15rem;
   }
 
   &.h2 {
@@ -40,10 +41,6 @@
 
   &.w-400 {
     font-weight: 400;
-  }
-
-  &.w-600 {
-    font-weight: 600;
   }
 
   &.w-700 {

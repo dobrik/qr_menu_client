@@ -8,6 +8,10 @@ const Page = () => {
       <Head>
         <title>Menu</title>
         <meta name="description" content="description" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="" />
       </Head>
       <Home />
     </>

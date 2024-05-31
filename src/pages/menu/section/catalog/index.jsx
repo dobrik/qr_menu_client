@@ -29,7 +29,7 @@ export const Catalog = () => {
           <div className="catalog__content stack column">
             <div className="catalog__block stack column">
               <LineWrapper>
-                <Typography tag="h2" variant="h2">
+                <Typography tag="h2" variant="h2" weight="700">
                   {t.title.category}
                 </Typography>
                 <Line />
@@ -56,7 +56,7 @@ export const Catalog = () => {
 
             <div className="catalog__block stack column">
               <LineWrapper>
-                <Typography tag="h2" variant="h2">
+                <Typography tag="h2" variant="h2" weight="700">
                   {t.title.category}
                 </Typography>
                 <Line />
