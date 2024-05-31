@@ -36,17 +36,17 @@ export const Catalog = () => {
           <button className="catalog__direction" onClick={toggleDirection}>
             {grid ? (
               <Image
-                src="/img/ui/grid.svg"
-                width="30"
-                height="30"
-                alt="grid icon"
-              />
-            ) : (
-              <Image
                 src="/img/ui/row.svg"
                 width="30"
                 height="30"
                 alt="row icon"
+              />
+            ) : (
+              <Image
+                src="/img/ui/grid.svg"
+                width="30"
+                height="30"
+                alt="grid icon"
               />
             )}
           </button>
