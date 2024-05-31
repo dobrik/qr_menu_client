@@ -16,11 +16,13 @@ import { useState } from "react";
 export const Catalog = () => {
   const t = useTranslation();
 
+  //toggle direction
   const [grid, setGrid] = useState(true);
 
   const toggleDirection = () => {
     setGrid(!grid);
   };
+  //toggle direction
 
   return (
     <section className="catalog stack column" id="catalog">
