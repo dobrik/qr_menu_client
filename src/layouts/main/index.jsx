@@ -1,6 +1,6 @@
 import { Footer, Header } from "@components/sections";
 
-export const MainLayuot = (props) => {
+export const MainLayout = (props) => {
   const { overflow = true, children, className = "" } = props;
 
   return (

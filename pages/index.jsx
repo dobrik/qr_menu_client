@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { MainLayuot } from "@layouts";
+import { MainLayout } from "@layouts";
 import { Home } from "@pages/home";
 
 const Page = () => {
@@ -18,6 +18,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => <MainLayuot overflow={false}>{page}</MainLayuot>;
+Page.getLayout = (page) => <MainLayout overflow={false}>{page}</MainLayout>;
 
 export default Page;

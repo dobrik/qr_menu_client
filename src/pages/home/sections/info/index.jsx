@@ -1,5 +1,6 @@
-import { Container, Line, LineWrapper, Typography } from "@components/ui";
-import { useTranslation } from "@hooks";
+import {Container, Line, LineWrapper, Typography} from "@components/ui";
+import {useTranslation} from "@hooks";
+import {RESTAURANT} from "@utils";
 
 export const Info = () => {
   const t = useTranslation();
@@ -9,13 +10,14 @@ export const Info = () => {
         <div className="info__wrapper stack column">
           <div className="info__text stack column">
             <Typography tag="h1" variant="h1" weight="900" center>
-              {t.title.restaurant}
+              {RESTAURANT.name}
             </Typography>
             <div className="info__text-wrapper stack align-center">
               <Typography tag="p" variant="p" color="dark">
                 {t.subtitle.location}
               </Typography>
               <span>
+                <a target="_blank" href={`https://www.google.com/maps/@${RESTAURANT.lat},${RESTAURANT.lon},16z`}>
                 <svg
                   width="12"
                   height="16"
@@ -33,10 +35,11 @@ export const Info = () => {
                   </g>
                   <defs>
                     <clipPath id="clip0_13_1022">
-                      <rect width="12" height="16" fill="white" />
+                      <rect width="12" height="16" fill="white"/>
                     </clipPath>
                   </defs>
                 </svg>
+                </a>
               </span>
             </div>
           </div>
@@ -44,28 +47,29 @@ export const Info = () => {
           <div className="info__about stack column">
             <LineWrapper>
               <Typography tag="h2" variant="h2" weight="700">
-                {t.title.about}
+                {RESTAURANT.about}
               </Typography>
-              <Line />
+              <Line/>
             </LineWrapper>
             <Typography tag="p" variant="p">
-              {t.subtitle.about}
+              {RESTAURANT.description}
             </Typography>
           </div>
 
           <div className="info__text stack column">
             <div className="info__text-wrapper stack align-center">
               <Typography tag="p" variant="p" color="dark">
-                {t.subtitle.address}
+                {RESTAURANT.address}
               </Typography>
               <span>
-                <svg
-                  width="12"
-                  height="16"
-                  viewBox="0 0 12 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <a target="_blank" href={`https://www.google.com/maps/@${RESTAURANT.lat},${RESTAURANT.lon},16z`}>
+                  <svg
+                    width="12"
+                    height="16"
+                    viewBox="0 0 12 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                   <g clipPath="url(#clip0_13_1022)">
                     <path
                       fillRule="evenodd"
@@ -76,10 +80,11 @@ export const Info = () => {
                   </g>
                   <defs>
                     <clipPath id="clip0_13_1022">
-                      <rect width="12" height="16" fill="white" />
+                      <rect width="12" height="16" fill="white"/>
                     </clipPath>
                   </defs>
                 </svg>
+                </a>
               </span>
             </div>
             <Typography tag="p" variant="p" verticalLine>
@@ -110,7 +115,7 @@ export const Info = () => {
                   </g>
                   <defs>
                     <clipPath id="clip0_13_1043">
-                      <rect width="16" height="16" fill="white" />
+                      <rect width="16" height="16" fill="white"/>
                     </clipPath>
                   </defs>
                 </svg>
@@ -119,7 +124,8 @@ export const Info = () => {
             <div className="info__table">
               <table>
                 <tbody>
-                  <tr>
+                {Object.entries(RESTAURANT.schedule).map((data) => {
+                  return (<tr key={data[0]}>
                     <td>
                       <Typography
                         className="info__day"
@@ -127,83 +133,26 @@ export const Info = () => {
                         variant="p"
                         verticalLine
                       >
-                        {t.common.monday}
+                        {t.common[data[0]]}
                       </Typography>
                     </td>
-                    <td>10:00-22:00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Typography
-                        className="info__day"
-                        tag="p"
-                        variant="p"
-                        verticalLine
-                      >
-                        {t.common.tuesday}
-                      </Typography>
-                    </td>
-                    <td>10:00-22:00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Typography
-                        className="info__day"
-                        tag="p"
-                        variant="p"
-                        verticalLine
-                      >
-                        {t.common.wednesday}
-                      </Typography>
-                    </td>
-                    <td>10:00-22:00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Typography
-                        className="info__day"
-                        tag="p"
-                        variant="p"
-                        verticalLine
-                      >
-                        {t.common.thursday}
-                      </Typography>
-                    </td>
-                    <td>10:00-22:00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Typography
-                        className="info__day"
-                        tag="p"
-                        variant="p"
-                        verticalLine
-                      >
-                        {t.common.friday}
-                      </Typography>
-                    </td>
-                    <td>10:00-22:00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <Typography tag="p" variant="p" verticalLine>
-                        {t.common.saturday}
-                      </Typography>
-                    </td>
-                    <td>10:00-22:00</td>
-                  </tr>
+                    <td>{data[1]}</td>
+                  </tr>)
+                })}
                 </tbody>
               </table>
             </div>
           </div>
 
           <div className="info__contact stack column">
-            <div className="info__text stack column">
-              <div className="info__text-wrapper stack align-center">
-                <Typography tag="p" variant="p" color="dark">
-                  {t.subtitle.delivery}
-                </Typography>
-                <span>
+            {Object.entries(RESTAURANT.phones).map((data) => {
+                console.log(data)
+                return (<div key={data[0]} className="info__text stack column">
+                  <div className="info__text-wrapper stack align-center">
+                    <Typography tag="p" variant="p" color="dark">
+                      {data[0]}
+                    </Typography>
+                    <span>
                   <svg
                     width="9"
                     height="10"
@@ -221,90 +170,21 @@ export const Info = () => {
                     </g>
                     <defs>
                       <clipPath>
-                        <rect width="9" height="10" fill="white" />
+                        <rect width="9" height="10" fill="white"/>
                       </clipPath>
                     </defs>
                   </svg>
                 </span>
-              </div>
-              <a href="tel:+380999999999">
-                <Typography tag="p" variant="p" verticalLine>
-                  +38 (099) 999-99-99
-                </Typography>
-              </a>
-            </div>
-
-            <div className="info__text stack column">
-              <div className="info__text-wrapper stack align-center">
-                <Typography tag="p" variant="p" color="dark">
-                  {t.subtitle.booking}
-                </Typography>
-                <span>
-                  <svg
-                    width="9"
-                    height="10"
-                    viewBox="0 0 9 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_13_1065)">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M0.108507 1.68573C0.822223 2.21276 1.53026 2.7428 2.12791 3.42527C1.78533 5.05186 3.15265 6.35145 4.39966 7.11709C4.88784 7.41682 5.10361 7.62695 5.64706 7.52596L7.78722 9.77992C3.75961 11.2339 -0.760414 5.13389 0.108507 1.68573ZM6.19875 6.94644L6.66823 6.43389C6.8036 6.28586 7.02709 6.28398 7.16481 6.42958L8.89569 8.26141C9.03333 8.407 9.03507 8.64724 8.8997 8.79519L8.43007 9.30782C8.29463 9.45577 8.07113 9.45765 7.93342 9.31205L6.20254 7.48022C6.06482 7.33471 6.06316 7.09447 6.19875 6.94644ZM0.530362 0.607658L0.871056 0.162985C1.0171 -0.0276119 1.28178 -0.055119 1.45909 0.101867L3.23108 1.671C3.40839 1.82815 3.43376 2.1125 3.28786 2.30334L2.94702 2.74777C2.8009 2.93861 2.53629 2.96587 2.3589 2.80888L0.58722 1.23975C0.409908 1.08277 0.384166 0.798255 0.530362 0.607658Z"
-                        fill="white"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath>
-                        <rect width="9" height="10" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-              <a href="tel:+380999999999">
-                <Typography tag="p" variant="p" verticalLine>
-                  +38 (099) 999-99-99
-                </Typography>
-              </a>
-            </div>
-
-            <div className="info__text stack column">
-              <div className="info__text-wrapper stack align-center">
-                <Typography tag="p" variant="p" color="dark">
-                  {t.subtitle.admin}
-                </Typography>
-                <span>
-                  <svg
-                    width="9"
-                    height="10"
-                    viewBox="0 0 9 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_13_1065)">
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M0.108507 1.68573C0.822223 2.21276 1.53026 2.7428 2.12791 3.42527C1.78533 5.05186 3.15265 6.35145 4.39966 7.11709C4.88784 7.41682 5.10361 7.62695 5.64706 7.52596L7.78722 9.77992C3.75961 11.2339 -0.760414 5.13389 0.108507 1.68573ZM6.19875 6.94644L6.66823 6.43389C6.8036 6.28586 7.02709 6.28398 7.16481 6.42958L8.89569 8.26141C9.03333 8.407 9.03507 8.64724 8.8997 8.79519L8.43007 9.30782C8.29463 9.45577 8.07113 9.45765 7.93342 9.31205L6.20254 7.48022C6.06482 7.33471 6.06316 7.09447 6.19875 6.94644ZM0.530362 0.607658L0.871056 0.162985C1.0171 -0.0276119 1.28178 -0.055119 1.45909 0.101867L3.23108 1.671C3.40839 1.82815 3.43376 2.1125 3.28786 2.30334L2.94702 2.74777C2.8009 2.93861 2.53629 2.96587 2.3589 2.80888L0.58722 1.23975C0.409908 1.08277 0.384166 0.798255 0.530362 0.607658Z"
-                        fill="white"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath>
-                        <rect width="9" height="10" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-              <a href="tel:+380999999999">
-                <Typography tag="p" variant="p" verticalLine>
-                  +38 (099) 999-99-99
-                </Typography>
-              </a>
-            </div>
+                  </div>
+                  <a href={`tel:${data[1]}`}>
+                    <Typography tag="p" variant="p" verticalLine>
+                      {data[1]}
+                    </Typography>
+                  </a>
+                </div>)
+              }
+            )
+            }
           </div>
         </div>
       </Container>
