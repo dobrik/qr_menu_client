@@ -1,3 +1,5 @@
+@use "../../../functions/fluid";
+
 .static {
   display: flex;
   flex-direction: column;
@@ -24,21 +26,21 @@
 
   h1 {
     font-weight: 900;
-    font-size: fluid(4rem, 3.2rem);
+    font-size: fluid.fluid(4rem, 3.2rem);
   }
 
   h2 {
     font-weight: 700;
-    font-size: fluid(3.2rem, 2.4rem);
+    font-size: fluid.fluid(3.2rem, 2.4rem);
   }
 
   h3 {
     font-weight: 700;
-    font-size: fluid(2.4rem, 2rem);
+    font-size: fluid.fluid(2.4rem, 2rem);
   }
 
   h4 {
-    font-size: fluid(2rem, 1.8rem);
+    font-size: fluid.fluid(2rem, 1.8rem);
   }
 
   div {

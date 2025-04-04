@@ -1,3 +1,5 @@
+@use "../../../functions/em";
+
 .preview {
   position: relative;
   z-index: -1;
@@ -19,7 +21,7 @@
     object-fit: cover;
     transform: translateX(-50%);
 
-    @media (max-width: em(1280)) {
+    @media (max-width: em.em(1280)) {
       height: 30rem;
     }
   }
@@ -32,7 +34,7 @@
     height: 100%;
   }
 
-  @media (max-width: em(1280)) {
+  @media (max-width: em.em(1280)) {
     min-height: 30rem;
   }
 }

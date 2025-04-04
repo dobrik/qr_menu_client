@@ -1,3 +1,5 @@
+@use "sass:string";
+
 /* stylelint-disable scss/dollar-variable-colon-newline-after */
 @use "sass:math";
 
@@ -5,13 +7,13 @@
   $max-value,
   $min-value,
   $min-vw: 32rem,
-  $max-vw: $containerWidth
+  $max-vw: 120rem
 ) {
   // $factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
 
   $factor: math.div(1, $max-vw - $min-vw) * ($max-value - $min-value);
   /* stylelint-disable-next-line scss/no-global-function-names */
-  $calc-value: unquote(
+  $calc-value: string.unquote(
     "#{ $min-value - ( $min-vw * $factor ) } + #{ 100vw * $factor }"
   );
 

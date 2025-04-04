@@ -1,3 +1,5 @@
+@use "../../functions/em";
+
 .burger {
   display: none;
 
@@ -6,7 +8,7 @@
   $bgColor: var(--clr-default-100);
   $burgerLineHeight: 0.2rem;
 
-  @media (max-width: em(992)) {
+  @media (max-width: em.em(992)) {
     position: relative;
     display: block;
     flex-shrink: 0;

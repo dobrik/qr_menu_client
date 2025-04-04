@@ -1,3 +1,5 @@
+@use "../../../functions/em";
+
 .product {
   padding: 3rem;
   width: 100%;
@@ -12,7 +14,7 @@
     max-width: 80rem;
     background-color: var(--clr-bg-500);
 
-    @media (max-width: em(575)) {
+    @media (max-width: em.em(575)) {
       padding: 6rem 2rem 2rem 2rem;
     }
   }
@@ -76,7 +78,7 @@
   }
 
   &__name-wrapper {
-    @media (max-width: em(575)) {
+    @media (max-width: em.em(575)) {
       flex-direction: column-reverse;
     }
   }
@@ -105,7 +107,7 @@
     gap: 0.8rem;
   }
 
-  @media (max-width: em(575)) {
+  @media (max-width: em.em(575)) {
     padding: 1.5rem;
   }
 }

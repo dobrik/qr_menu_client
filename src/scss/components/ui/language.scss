@@ -1,3 +1,5 @@
+@use "../../functions/em";
+
 .language {
   position: relative;
 
@@ -80,7 +82,7 @@
     }
   }
 
-  @media (max-width: em(992)) {
+  @media (max-width: em.em(992)) {
     margin-left: auto;
   }
 }

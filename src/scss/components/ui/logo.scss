@@ -1,7 +1,9 @@
+@use "../../functions/em";
+
 .logo {
   max-width: 15rem;
 
-  @media (max-width: em(767)) {
+  @media (max-width: em.em(767)) {
     max-width: 10rem;
   }
 }

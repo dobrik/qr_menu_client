@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
-import bg from "bg.json";
+import bg from "./../bg.json";
 
 const Document = () => {
   const { backgroundColor } = bg;
