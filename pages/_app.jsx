@@ -2,26 +2,26 @@ import { useEffect, useState } from "react";
 import "../src/scss/globals.scss";
 import { useRouter } from "next/router";
 import { Preloader } from "@components/ui";
+import { getSubdomainFromHost } from "@/utils/get-subdomain";
+import { menuStore } from "@/stores/menu-store";
 
 const App = (props) => {
-  // **Props
   const { Component, pageProps } = props;
-
   const getLayout = Component.getLayout ?? ((page) => page);
-
-  // Preloader
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  //body lock
-  useEffect(() => {
-    if (loading) {
-      document.body.classList.add("lock");
-    } else {
-      document.body.classList.remove("lock");
-    }
-  }, [loading]);
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const host = window.location.host;
+    const subdomain = getSubdomainFromHost(host);
+
+    if (subdomain && !menuStore.menuData) {
+      menuStore.loadMenuData(subdomain).catch(console.error);
+    }
+  }, []);
+
+  // Preloader...
   useEffect(() => {
     const handleStart = () => setLoading(true);
     const handleComplete = () => setLoading(false);
