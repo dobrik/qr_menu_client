@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import "../src/scss/globals.scss";
 import { useRouter } from "next/router";
 import { Preloader } from "@components/ui";
-import { getSubdomainFromHost } from "@/utils/get-subdomain";
-import { menuStore } from "@/stores/menu-store";
+import {RestaurantDataProvider} from "@providers/restaurant-data-provider";
 
 const App = (props) => {
   const { Component, pageProps } = props;
@@ -11,15 +10,6 @@ const App = (props) => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const host = window.location.host;
-    const subdomain = getSubdomainFromHost(host);
-
-    if (subdomain && !menuStore.menuData) {
-      menuStore.loadMenuData(subdomain).catch(console.error);
-    }
-  }, []);
 
   // Preloader...
   useEffect(() => {
@@ -36,12 +26,13 @@ const App = (props) => {
       router.events.off("routeChangeError", handleComplete);
     };
   }, [router]);
-  // Preloader
 
   return (
     <>
       {loading && <Preloader />}
-      {getLayout(<Component {...pageProps} />)}
+      <RestaurantDataProvider initialMenuData={pageProps.menuData}>
+        {getLayout(<Component {...pageProps} />)}
+      </RestaurantDataProvider>
     </>
   );
 };
