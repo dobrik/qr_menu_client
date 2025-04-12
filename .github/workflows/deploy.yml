@@ -48,7 +48,7 @@ jobs:
 
             docker pull $IMAGE_NAME
 
-            cat > /home/dobrik/apps/menu_frontend/docker-compose.yml <<EOF
+            cat > /home/dobrik/apps/menu/frontend/docker-compose.yml <<EOF
             version: '3.7'
             services:
               menu_frontend:
@@ -73,7 +73,7 @@ jobs:
                 external: true
             EOF
 
-            cd /home/dobrik/apps/menu_frontend && docker-compose up -d
+            cd /home/dobrik/apps/menu/frontend && docker-compose up -d
 
             echo "Pausing for 30 seconds before healthcheck..."
             sleep 30
