@@ -85,7 +85,7 @@ jobs:
               echo "New version is healthy."
               docker tag $IMAGE_NAME $LATEST_IMAGE
               docker rmi $(docker images -f "dangling=true" -q)
-              docker images | grep 'menu_frontend:' | awk '{print $3}' | tail -n +6 | xargs -r docker rmi
+              docker images | grep 'menu_frontend:' | awk '{print $3}' | tail -n +1 | xargs -r docker rmi
             else
               echo "Healthcheck failed. Rolling back."
               docker-compose down
