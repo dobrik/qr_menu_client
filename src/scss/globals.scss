@@ -152,6 +152,7 @@ main {
 // Components - Pages
 @include meta.load-css("components/pages/home/hero");
 @include meta.load-css("components/pages/home/info");
+@include meta.load-css("components/pages/home/categories");
 @include meta.load-css("components/pages/menu/preview");
 @include meta.load-css("components/pages/menu/catalog");
 @include meta.load-css("components/pages/product/product");

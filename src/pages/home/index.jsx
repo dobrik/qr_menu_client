@@ -1,9 +1,10 @@
-import { Hero, Info } from "./sections";
+import {Categories, Hero, Info} from "./sections";
 
-export const Home = () => {
+export const Home = ({categories}) => {
   return (
     <>
       <Hero />
+      <Categories categories={categories}></Categories>
       <Info />
     </>
   );

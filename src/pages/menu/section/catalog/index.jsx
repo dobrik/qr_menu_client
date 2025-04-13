@@ -10,11 +10,11 @@ import {
 } from "@components/ui";
 
 import { useTranslation } from "@hooks";
-import { CATALOG } from "@utils";
 import { useState } from "react";
 
-export const Catalog = () => {
+export const Catalog = ({category}) => {
   const t = useTranslation();
+  const sections = category.sections
 
   //toggle direction
   const [grid, setGrid] = useState(true);
@@ -29,8 +29,9 @@ export const Catalog = () => {
       <Container>
         <div className="catalog__wrapper stack column">
           <HorizontalMenu>
-            <HorizontalItem href="#block1" name={t.common.onemore} />
-            <HorizontalItem href="#block2" name={t.common.onemore} />
+            { sections.map((section) => (
+              <HorizontalItem key={section.slug} href={`#${section.slug}`} name={section.title} />
+            ))}
           </HorizontalMenu>
 
           <button className="catalog__direction" onClick={toggleDirection}>
@@ -52,61 +53,26 @@ export const Catalog = () => {
           </button>
 
           <div className="catalog__content stack column">
-            <div className="catalog__block stack column" id="block1">
-              <LineWrapper>
-                <Typography tag="h2" variant="h2" weight="700">
-                  {t.title.category}
-                </Typography>
-                <Line />
-              </LineWrapper>
+            { sections.map((section) => (
+              <div className="catalog__block stack column" key={section.slug}>
+                <LineWrapper>
+                  <Typography tag="h2" variant="h2" weight="700">
+                    {section.title}
+                  </Typography>
+                  <Line/>
+                </LineWrapper>
 
-              <ul className={`catalog__list ${grid ? "grid" : "row"}`}>
-                {CATALOG.map(
-                  ({ id, src, name, price, rating, weight, description }) => (
-                    <li key={id}>
-                      <MenuCard
-                        newFood
-                        id={id}
-                        src={src}
-                        name={name}
-                        description={description}
-                        price={price}
-                        weight={weight}
-                        rating={rating}
-                      />
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-
-            <div className="catalog__block stack column" id="block2">
-              <LineWrapper>
-                <Typography tag="h2" variant="h2" weight="700">
-                  {t.title.category}
-                </Typography>
-                <Line />
-              </LineWrapper>
-
-              <ul className={`catalog__list ${grid ? "grid" : "row"}`}>
-                {CATALOG.map(
-                  ({ id, src, name, price, rating, weight, description }) => (
-                    <li key={id}>
-                      <MenuCard
-                        newFood
-                        id={id}
-                        src={src}
-                        name={name}
-                        description={description}
-                        price={price}
-                        weight={weight}
-                        rating={rating}
-                      />
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
+                <ul className={`catalog__list ${grid ? "grid" : "row"}`}>
+                  {section.products.map(
+                    (product) => (
+                      <li key={product.slug}>
+                        <MenuCard categorySlug={category.slug} sectionSlug={section.slug} {...product}/>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </Container>

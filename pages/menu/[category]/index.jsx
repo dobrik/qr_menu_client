@@ -5,14 +5,14 @@ import {Menu} from "@pages";
 import {getSubdomainFromHost} from "@utils/get-subdomain";
 import {fetchMenuData} from "@services/menu-data";
 
-const CategoryPage = observer(({restaurantSlug, categorySlug, menuData}) => {
+const CategoryPage = observer(({categoryData, menuData}) => {
   return (
     <>
       <Head>
         <title>Menu List</title>
         <meta name="description" content="description"/>
       </Head>
-      <Menu/>
+      <Menu categoryData={categoryData}/>
     </>
   );
 });
@@ -33,7 +33,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      categorySlug,
+      categoryData: category,
       menuData,
     },
   };

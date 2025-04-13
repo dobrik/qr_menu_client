@@ -1,6 +1,7 @@
 export const title = {
   en: {
     restaurant: "Restaurant Name",
+    categories: "Categories",
     about: "About Place",
     different: "Different Kind of Food",
     category: "Food category",
@@ -12,6 +13,7 @@ export const title = {
   },
   ru: {
     restaurant: "Название ресторана",
+    categories: "Категории",
     about: "О месте",
     different: "Разные виды еды",
     category: "Категория еды",
@@ -23,6 +25,7 @@ export const title = {
   },
   uk: {
     restaurant: "Назва ресторану",
+    categories: "Категорії",
     about: "Про місце",
     different: "Різні види їжі",
     category: "Категорія їжі",

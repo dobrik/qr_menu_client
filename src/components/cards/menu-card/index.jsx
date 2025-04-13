@@ -3,15 +3,15 @@ import Link from "next/link";
 
 export const MenuCard = (props) => {
   //props
-  const { newFood, src, name, description, price, weight, rating, id } = props;
+  const { categorySlug, sectionSlug, newFood, image, title, description, price, weight, weight_unit, rating, slug } = props
 
   return (
     <div className="menu-card">
       <div className="menu-card__image">
         <LikesButton className="menu-card__likes" />
-        <Link className="menu-card__link" href={`/${id}`}>
+        <Link className="menu-card__link" href={`/menu/${categorySlug}/${sectionSlug}/${slug}`}>
           <div className="menu-card__poster">
-            <Image src={src} width="200" height="200" alt="Menu card" />
+            <Image src={image} width="200" height="200" alt="Menu card" />
             {newFood ? (
               <div className="menu-card__new">
                 <span>NEW</span>
@@ -21,11 +21,11 @@ export const MenuCard = (props) => {
         </Link>
       </div>
 
-      <Link className="menu-card__link" href={`/${id}`}>
+      <Link className="menu-card__link" href={`/menu/${categorySlug}/${sectionSlug}/${slug}`}>
         <div className="menu-card__content stack column justify-space-between">
           <div className="menu-card__text stack column">
             <Typography tag="h4" variant="h4" weight="700">
-              {name}
+              {title}
             </Typography>
             <Typography tag="p" variant="p" color="dark">
               {description}
@@ -36,7 +36,7 @@ export const MenuCard = (props) => {
               {price} ₴
             </Typography>
             <Typography className="menu-card__price" tag="span" color="dark">
-              {weight} kg
+              {weight} {weight_unit}
             </Typography>
             <div className="menu-card__rating stack align-center">
               <Image
@@ -46,7 +46,7 @@ export const MenuCard = (props) => {
                 alt="Rating Star"
               />
               <Typography className="" tag="span" variant="p">
-                {rating}
+                {5} {/*rating*/}
               </Typography>
             </div>
           </div>

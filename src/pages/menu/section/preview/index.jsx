@@ -1,7 +1,7 @@
 import { Container, Image, Typography } from "@components/ui";
 import { useTranslation } from "@hooks";
 
-export const Preview = () => {
+export const Preview = ({categoryData}) => {
   const t = useTranslation();
 
   return (

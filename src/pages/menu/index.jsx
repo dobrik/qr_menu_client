@@ -1,10 +1,10 @@
 import { Catalog, Preview } from "./section";
 
-export const Menu = () => {
+export const Menu = ({categoryData}) => {
   return (
     <>
-      <Preview />
-      <Catalog />
+      <Preview categoryData={categoryData} />
+      <Catalog category={categoryData} />
     </>
   );
 };
