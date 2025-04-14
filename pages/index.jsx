@@ -6,17 +6,18 @@ import {fetchMenuData} from "@services/menu-data";
 import {observer} from "mobx-react-lite";
 
 const Page = observer(({menuData}) => {
+  console.log('menuData', menuData)
   return (
     <>
       <Head>
-        <title>Menu</title>
+        <title>{menuData?.restaurant?.title}</title>
         <meta name="description" content="description" />
         <meta property="og:title" content="" />
         <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content={menuData?.restaurant?.image || ''} />
         <meta property="og:url" content="" />
       </Head>
-      <Home categories={menuData.categories}/>
+      <Home menuData={menuData}/>
     </>
   );
 });
