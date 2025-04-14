@@ -116,7 +116,7 @@ export const Info = ({menuData}) => {
           </div>
         </div>
         {!!menuData.restaurant.phones && Object.entries(menuData.restaurant.phones).map((phone) => (
-          <div className="info__contact stack column">
+          <div key={phone[0]} className="info__contact stack column">
             <div className="info__text stack column">
               <div className="info__text-wrapper stack align-center">
                 <Typography tag="p" variant="p" color="dark">

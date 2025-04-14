@@ -6,7 +6,6 @@ import {fetchMenuData} from "@services/menu-data";
 import {observer} from "mobx-react-lite";
 
 const Page = observer(({menuData}) => {
-  console.log('menuData', menuData)
   return (
     <>
       <Head>
