@@ -1,20 +1,22 @@
 import { Image, LikesButton, Typography } from "@components/ui";
 import Link from "next/link";
+import {useTranslation} from "@hooks";
 
 export const MenuCard = (props) => {
   //props
-  const { categorySlug, sectionSlug, newFood, image, title, description, price, weight, weight_unit, rating, slug } = props
+  const { categorySlug, sectionSlug, newFood, image, title, description, price, weight, weight_unit, rating, label, slug, allergens } = props
+  const t = useTranslation();
 
   return (
     <div className="menu-card">
       <div className="menu-card__image">
-        <LikesButton className="menu-card__likes" />
+        <LikesButton className="menu-card__likes"/>
         <Link className="menu-card__link" href={`/menu/${categorySlug}/${sectionSlug}/${slug}`}>
           <div className="menu-card__poster">
-            <Image src={image} width="200" height="200" alt="Menu card" />
-            {newFood ? (
+            <Image src={image} width="200" height="200" alt="Menu card"/>
+            {label ? (
               <div className="menu-card__new">
-                <span>NEW</span>
+                <span>{t.common[label]}</span>
               </div>
             ) : null}
           </div>
@@ -50,6 +52,17 @@ export const MenuCard = (props) => {
               </Typography>
             </div>
           </div>
+          {allergens && (
+            <div className="menu-card__text stack column">
+              <ul className="product__categories stack wrap justify-space-between">
+                {allergens.map((allergen) => (
+                  <li key={allergen} className="product__category stack align-center">
+                    <Image src={`/img/ui/${allergen}.svg`} width="22" height="30" alt={t.common[allergen]}/>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </Link>
     </div>

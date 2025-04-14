@@ -54,17 +54,19 @@
   }
 
   &__new {
+    padding-right: 6rem;
     position: absolute;
-    right: -4rem;
+    right: -3.5rem;
     bottom: -6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 10rem;
     height: 15rem;
     background-color: var(--clr-primary-500);
     transform: rotate(45deg);
 
     span {
-      position: absolute;
-      top: 7rem;
       font-size: 1.9rem;
       transform: rotate(-90deg);
 
@@ -80,6 +82,7 @@
   }
 
   &__content {
+    height: 100%;
     gap: 1rem;
   }
 

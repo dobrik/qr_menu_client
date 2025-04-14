@@ -43,6 +43,9 @@ const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
               >
                 {price} ₴
               </Typography>
+              <Typography className="menu-card__price" weight="500" tag="span" color="dark">
+                {weight} {weight_unit}
+              </Typography>
               <div className="product__rating stack align-center">
                 <Image
                   src="/img/ui/star.svg"
@@ -61,44 +64,18 @@ const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
             {description}
           </Typography>
         </div>
-        {/*<ul className="product__categories stack wrap">*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/spicy.svg" width="22" height="30" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.spicy}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/nuts.svg" width="30" height="30" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.nuts}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/eggs.svg" width="23" height="30" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.eggs}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/fish.svg" width="36" height="28" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.fish}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/wheat.svg" width="22" height="30" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.wheat}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*  <li className="product__category stack align-center">*/}
-        {/*    <Image src="/img/ui/milk.svg" width="22" height="30" alt="Spicy" />*/}
-        {/*    <Typography tag="p" variant="p">*/}
-        {/*      {t.common.milk}*/}
-        {/*    </Typography>*/}
-        {/*  </li>*/}
-        {/*</ul>*/}
+        { productData.allergens && (
+          <ul className="product__categories stack wrap">
+            {productData.allergens.map((allergen) => (
+              <li key={allergen} className="product__category stack align-center">
+                <Image src={`/img/ui/${allergen}.svg`} width="22" height="30" alt={t.common[allergen]}/>
+                <Typography tag="p" variant="p">
+                  {t.common[allergen]}
+                </Typography>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );

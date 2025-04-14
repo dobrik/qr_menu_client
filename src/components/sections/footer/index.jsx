@@ -9,7 +9,7 @@ export const Footer = () => {
       <Container>
         <div className="footer__wrapper">
           <Typography className="footer__text" tag="p" weight="900" center>
-            {t.common.powered}
+            {t.common.powered} <a href="https://myfavorite.place">myfavorite.place</a>
           </Typography>
         </div>
       </Container>
