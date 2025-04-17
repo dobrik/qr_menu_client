@@ -14,7 +14,7 @@ export function middleware(request) {
     pathname.startsWith('/_next/static') ||  // next.js internal static
     pathname.startsWith('/_next/image') ||   // next.js image optimizer
     pathname === '/favicon.ico' ||            // favicon
-    pathname.startsWith('/img/')               // ваша кастомная папка с картинками
+    pathname.startsWith('/img/')
   ) {
     return NextResponse.next();
   }
