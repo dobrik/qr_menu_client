@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "../src/scss/globals.scss";
 import { useRouter } from "next/router";
 import { Preloader } from "@components/ui";
-import {RestaurantDataProvider} from "@providers/restaurant-data-provider";
 
 const App = (props) => {
   const { Component, pageProps } = props;
@@ -30,9 +29,7 @@ const App = (props) => {
   return (
     <>
       {loading && <Preloader />}
-      <RestaurantDataProvider initialMenuData={pageProps.menuData}>
         {getLayout(<Component {...pageProps} />)}
-      </RestaurantDataProvider>
     </>
   );
 };

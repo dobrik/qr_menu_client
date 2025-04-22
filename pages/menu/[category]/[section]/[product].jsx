@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { Image, LikesButton, Preloader, Typography } from "@components/ui";
 import { useTranslation } from "@hooks";
 import Link from "next/link";
-import {getSubdomainFromHost} from "@utils/get-subdomain";
 import {fetchMenuData} from "@services/menu-data";
 
 const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
@@ -82,13 +81,12 @@ const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
 };
 
 export async function getServerSideProps(context) {
-  const host = context.req.headers.host;
-  const restaurantSlug = getSubdomainFromHost(host);
+  const restaurantSlug = context.req?.headers['x-restaurant'];
   const categorySlug = context.params.category;
   const sectionSlug = context.params.section;
   const productSlug = context.params.product;
 
-  const menuData = await fetchMenuData(restaurantSlug);
+  const menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
   const category = menuData.categories.find((c) => c.slug === categorySlug);
   const section = category.sections.find((c) => c.slug === sectionSlug);
   const product = section.products.find((c) => c.slug === productSlug);

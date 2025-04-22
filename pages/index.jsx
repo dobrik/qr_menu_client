@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { MainLayout } from "@layouts";
 import { Home } from "@pages/home";
-import {getSubdomainFromHost} from "@utils/get-subdomain";
 import {fetchMenuData} from "@services/menu-data";
 import {observer} from "mobx-react-lite";
 
@@ -24,10 +23,9 @@ const Page = observer(({menuData}) => {
 Page.getLayout = (page) => <MainLayout overflow={false}>{page}</MainLayout>;
 
 export async function getServerSideProps(context) {
-  const host = context.req.headers.host;
-  const restaurantSlug = getSubdomainFromHost(host);
+  const restaurantSlug = context.req?.headers['x-restaurant'];
 
-  const menuData = await fetchMenuData(restaurantSlug);
+  const menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
   const isPublished = menuData?.restaurant?.is_published;
   if (!isPublished) {
     return {notFound: true};

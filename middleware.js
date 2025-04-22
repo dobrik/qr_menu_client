@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import {NextResponse} from 'next/server';
 
 function getSubdomain(hostname) {
   const parts = hostname.split('.');
@@ -7,7 +7,7 @@ function getSubdomain(hostname) {
 }
 
 export function middleware(request) {
-  const { pathname } = request.nextUrl;
+  const {pathname} = request.nextUrl;
 
   // Skip static files and images to let them load normally
   if (
@@ -20,12 +20,16 @@ export function middleware(request) {
   }
 
   const host = request.headers.get('host') || '';
-  const subdomain = getSubdomain(host);
+  let subdomain = getSubdomain(host);
 
   const response = NextResponse.next();
 
   if (subdomain) {
-    response.headers.set('x-subdomain', subdomain);
+    if (subdomain.startsWith('preview-')) {
+      response.headers.set('x-preview', '1');
+      subdomain = subdomain.slice('preview-'.length)
+    }
+    response.headers.set('x-restaurant', subdomain);
   } else {
     if (pathname !== '/landing') {
       return NextResponse.redirect(new URL('/landing', request.url));

@@ -6,10 +6,10 @@ export const Home = ({menuData}) => {
     <>
       <Hero/>
 
-      <Container>
+      <div className={'container home_info__container'}>
         <Categories categories={menuData.categories}></Categories>
         <Info menuData={menuData}/>
-      </Container>
+      </div>
     </>
   );
 };
