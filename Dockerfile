@@ -9,15 +9,18 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-ARG BACKEND_URL
-ENV NEXT_PUBLIC_BACKEND_URL=$BACKEND_URL
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_S3_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_S3_URL=$NEXT_PUBLIC_S3_URL
 RUN yarn build
 
 # Финальный рантайм-контейнер
 FROM node:18-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV NEXT_PUBLIC_BACKEND_URL=$BACKEND_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_S3_URL=$NEXT_PUBLIC_S3_URL
 
 # Копируем всё необходимое
 COPY --from=builder /app/public ./public
