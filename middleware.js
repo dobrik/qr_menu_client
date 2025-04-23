@@ -9,6 +9,10 @@ function getSubdomain(hostname) {
 export function middleware(request) {
   const {pathname} = request.nextUrl;
 
+  if (pathname === '/api/health') {
+    return NextResponse.next();
+  }
+
   // Skip static files and images to let them load normally
   if (
     pathname.startsWith('/_next/static') ||  // next.js internal static

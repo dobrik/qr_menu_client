@@ -80,7 +80,7 @@ jobs:
             echo "Pausing for 30 seconds before healthcheck..."
             sleep 30
 
-            HEALTHCHECK_URL="http://localhost:3000"
+            HEALTHCHECK_URL="http://localhost:3000/api/health"
             HEALTH_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $HEALTHCHECK_URL)
 
             if [ "$HEALTH_STATUS" -eq 200 ]; then
