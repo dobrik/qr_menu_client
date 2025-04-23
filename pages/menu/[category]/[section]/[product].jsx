@@ -86,7 +86,17 @@ export async function getServerSideProps(context) {
   const sectionSlug = context.params.section;
   const productSlug = context.params.product;
 
-  const menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+  let menuData;
+  try {
+    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+  } catch (e) {
+    return {notFound: true};
+  }
+
+  if (!menuData || !menuData?.restaurant?.is_published) {
+    return {notFound: true};
+  }
+
   const category = menuData.categories.find((c) => c.slug === categorySlug);
   const section = category.sections.find((c) => c.slug === sectionSlug);
   const product = section.products.find((c) => c.slug === productSlug);

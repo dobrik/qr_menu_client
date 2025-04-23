@@ -22,7 +22,17 @@ export async function getServerSideProps(context) {
   const restaurantSlug = context.req?.headers['x-restaurant'];
   const categorySlug = context.params.category;
 
-  const menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+  let menuData;
+  try {
+    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+  } catch (e) {
+    return {notFound: true};
+  }
+
+  if (!menuData || !menuData?.restaurant?.is_published) {
+    return {notFound: true};
+  }
+
   const category = menuData.categories.find((c) => c.slug === categorySlug);
 
   if (!category) {

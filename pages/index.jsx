@@ -24,10 +24,13 @@ Page.getLayout = (page) => <MainLayout overflow={false}>{page}</MainLayout>;
 
 export async function getServerSideProps(context) {
   const restaurantSlug = context.req?.headers['x-restaurant'];
-
-  const menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
-  const isPublished = menuData?.restaurant?.is_published;
-  if (!isPublished) {
+  let menuData;
+  try {
+    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+  } catch (e) {
+    return {notFound: true};
+  }
+  if (!menuData || !menuData?.restaurant?.is_published) {
     return {notFound: true};
   }
 
