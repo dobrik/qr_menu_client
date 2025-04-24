@@ -8,11 +8,11 @@ const Page = observer(({menuData}) => {
   return (
     <>
       <Head>
-        <title>{menuData?.restaurant?.title}</title>
+        <title>{menuData?.title}</title>
         <meta name="description" content="description" />
         <meta property="og:title" content="" />
         <meta property="og:description" content="" />
-        <meta property="og:image" content={menuData?.restaurant?.image || ''} />
+        <meta property="og:image" content={menuData?.image || ''} />
         <meta property="og:url" content="" />
       </Head>
       <Home menuData={menuData}/>
@@ -28,9 +28,6 @@ export async function getServerSideProps(context) {
   try {
     menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
   } catch (e) {
-    return {notFound: true};
-  }
-  if (!menuData || !menuData?.restaurant?.is_published) {
     return {notFound: true};
   }
 

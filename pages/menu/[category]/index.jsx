@@ -29,10 +29,6 @@ export async function getServerSideProps(context) {
     return {notFound: true};
   }
 
-  if (!menuData || !menuData?.restaurant?.is_published) {
-    return {notFound: true};
-  }
-
   const category = menuData.categories.find((c) => c.slug === categorySlug);
 
   if (!category) {

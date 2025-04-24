@@ -8,11 +8,11 @@ export const Info = ({menuData}) => {
       <div className="info__wrapper stack column">
         <div className="info__text stack column">
           <Typography tag="h1" variant="h1" weight="900" center>
-            {menuData.restaurant.title}
+            {menuData.title}
           </Typography>
         </div>
 
-        {(menuData?.restaurant?.description) && (
+        {(menuData?.description) && (
           <div className="info__about stack column">
 
             <LineWrapper>
@@ -22,7 +22,7 @@ export const Info = ({menuData}) => {
               <Line/>
             </LineWrapper>
             <Typography tag="p" variant="p">
-              {menuData?.restaurant?.description}
+              {menuData?.description}
             </Typography>
           </div>
         )}
@@ -34,7 +34,7 @@ export const Info = ({menuData}) => {
           </Typography>
           <div className="info__text-wrapper stack align-center">
             <Typography tag="p" variant="p" color="dark">
-              {menuData.restaurant.address}
+              {menuData.address}
             </Typography>
             <span>
                 <svg
@@ -94,7 +94,7 @@ export const Info = ({menuData}) => {
           <div className="info__table">
             <table>
               <tbody>
-              {!!menuData.restaurant.schedule && Object.entries(menuData.restaurant.schedule).map((schedule) => {
+              {!!menuData.schedule && Object.entries(menuData.schedule).map((schedule) => {
                 return !schedule[1] ? '' : (
                   <tr key={schedule[0]}>
                     <td>
@@ -115,7 +115,7 @@ export const Info = ({menuData}) => {
             </table>
           </div>
         </div>
-        {!!menuData.restaurant.phones && Object.entries(menuData.restaurant.phones).map((phone) => (
+        {!!menuData.phones && Object.entries(menuData.phones).map((phone) => (
           <div key={phone[0]} className="info__contact stack column">
             <div className="info__text stack column">
               <div className="info__text-wrapper stack align-center">
