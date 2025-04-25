@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Image, LikesButton, Preloader, Typography } from "@components/ui";
 import { useTranslation } from "@hooks";
 import Link from "next/link";
-import { menuStore } from "@/stores/menu-store";
+import {Store} from "@/stores/menu-store";
 
 const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
   const router = useRouter();
@@ -87,6 +87,7 @@ export async function getServerSideProps(context) {
   const productSlug = context.params.product;
   const isPreview = context.req?.headers["x-preview"] === "1";
 
+  const menuStore = new Store();
   try {
     await menuStore.loadMenuData(restaurantSlug, isPreview);
   } catch (e) {

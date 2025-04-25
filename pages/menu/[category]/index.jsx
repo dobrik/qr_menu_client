@@ -2,7 +2,7 @@ import Head from "next/head";
 import {MainLayout} from "@layouts";
 import {observer} from "mobx-react-lite";
 import {Menu} from "@pages";
-import {menuStore} from "@stores/menu-store";
+import {Store} from "@stores/menu-store";
 
 const CategoryPage = observer(({categoryData, menuData}) => {
   return (
@@ -22,6 +22,7 @@ export async function getServerSideProps(context) {
   const restaurantSlug = context.req?.headers['x-restaurant'];
   const categorySlug = context.params.category;
 
+  const menuStore = new Store();
   try {
     // Load data via store
     await menuStore.loadMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
