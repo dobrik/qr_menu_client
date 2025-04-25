@@ -4,7 +4,7 @@ import {observer} from "mobx-react-lite";
 import {Menu} from "@pages";
 import {Store} from "@stores/menu-store";
 
-const CategoryPage = observer(({categoryData, menuData}) => {
+const CategoryPage = observer(({categoryData}) => {
   return (
     <>
       <Head>
@@ -25,7 +25,7 @@ export async function getServerSideProps(context) {
   const menuStore = new Store();
   try {
     // Load data via store
-    await menuStore.loadMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+    await menuStore.loadMenuData(restaurantSlug);
   } catch (e) {
     return { notFound: true };
   }
@@ -38,8 +38,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      categoryData: category,
-      menuData: menuStore.menuData,
+      categoryData: category
     },
   };
 }

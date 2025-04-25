@@ -29,10 +29,6 @@ export function middleware(request) {
   const response = NextResponse.next();
 
   if (subdomain) {
-    if (subdomain.startsWith('preview-')) {
-      response.headers.set('x-preview', '1');
-      subdomain = subdomain.slice('preview-'.length)
-    }
     response.headers.set('x-restaurant', subdomain);
   } else {
     if (pathname !== '/landing') {

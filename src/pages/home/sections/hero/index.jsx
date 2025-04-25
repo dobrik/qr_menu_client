@@ -8,7 +8,7 @@ export const Hero = () => {
     <section className="hero">
       <Image
         className="hero__bg"
-        src="img/hero/hero-bg.png"
+        src="/img/hero/hero-bg.png"
         width="1920"
         height="500"
         alt="Hero background"

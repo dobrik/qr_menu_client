@@ -1,17 +1,18 @@
 import { Image, LikesButton, Typography } from "@components/ui";
 import Link from "next/link";
-import {useTranslation} from "@hooks";
+import {usePrefixedLink, useTranslation} from "@hooks";
 
 export const MenuCard = (props) => {
   //props
   const { categorySlug, sectionSlug, newFood, image, title, description, price, weight, weight_unit, rating, label, slug, allergens } = props
   const t = useTranslation();
+  const { prefixedLink } = usePrefixedLink();
 
   return (
     <div className="menu-card">
       <div className="menu-card__image">
         <LikesButton className="menu-card__likes"/>
-        <Link className="menu-card__link" href={`/menu/${categorySlug}/${sectionSlug}/${slug}`}>
+        <Link className="menu-card__link" href={prefixedLink(`/menu/${categorySlug}/${sectionSlug}/${slug}`)}>
           <div className="menu-card__poster">
             <Image src={image} width="200" height="200" alt="Menu card"/>
             {label ? (
@@ -23,7 +24,7 @@ export const MenuCard = (props) => {
         </Link>
       </div>
 
-      <Link className="menu-card__link" href={`/menu/${categorySlug}/${sectionSlug}/${slug}`}>
+      <Link className="menu-card__link" href={prefixedLink(`/menu/${categorySlug}/${sectionSlug}/${slug}`)}>
         <div className="menu-card__content stack column justify-space-between">
           <div className="menu-card__text stack column">
             <Typography tag="h4" variant="h4" weight="700">

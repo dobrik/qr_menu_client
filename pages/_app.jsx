@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import "../src/scss/globals.scss";
-import { useRouter } from "next/router";
-import { Preloader } from "@components/ui";
+import {useRouter} from "next/router";
+import {Preloader} from "@components/ui";
+import {Auth0Provider} from "@auth0/auth0-react";
 
 const App = (props) => {
-  const { Component, pageProps } = props;
+  const {Component, pageProps} = props;
   const getLayout = Component.getLayout ?? ((page) => page);
   const router = useRouter();
 
@@ -28,8 +29,18 @@ const App = (props) => {
 
   return (
     <>
-      {loading && <Preloader />}
+      <Auth0Provider
+        domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN}
+        clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}
+        authorizationParams={{
+          redirect_uri: typeof window !== "undefined" ? window.location.origin : ""
+        }}
+        cacheLocation="localstorage"
+      >
+        {loading && <Preloader/>}
         {getLayout(<Component {...pageProps} />)}
+
+      </Auth0Provider>
     </>
   );
 };

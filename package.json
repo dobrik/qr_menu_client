@@ -10,6 +10,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
     "cookies-next": "^4.2.1",
     "mobx": "^6.13.7",
     "mobx-react-lite": "^4.1.0",

@@ -1,5 +1,5 @@
 import { makeAutoObservable, runInAction } from "mobx";
-import { fetchMenuData } from "@/services/menu-data";
+import {fetchMenuData, fetchPreviewMenuData} from "@/services/menu-data";
 
 export class Store {
     menuData = null;
@@ -18,8 +18,15 @@ export class Store {
         this.productMap = {};
     }
 
-    async loadMenuData(restaurantSlug, isPreview = false) {
-        const data = await fetchMenuData(restaurantSlug, isPreview);
+    async loadMenuData(restaurantSlug) {
+        const data = await fetchMenuData(restaurantSlug);
+        runInAction(() => {
+            this.setMenuData(data);
+        });
+    }
+
+    async loadPreviewMenuData(token) {
+        const data = await fetchPreviewMenuData(token);
         runInAction(() => {
             this.setMenuData(data);
         });
