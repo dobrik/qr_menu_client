@@ -1,18 +1,21 @@
 import { Container, Image } from "@components/ui";
 import { useTranslation } from "@hooks";
 
-export const Hero = () => {
+export const Hero = ({menuData}) => {
   const t = useTranslation();
 
   return (
     <section className="hero">
-      <Image
-        className="hero__bg"
-        src="/img/hero/hero-bg.png"
-        width="1920"
-        height="500"
-        alt="Hero background"
-      />
+      { menuData.image && (
+        <Image
+          className="hero__bg"
+          src={menuData.image}
+          width="1920"
+          height="500"
+          alt={menuData.title}
+        />
+      )}
+
       <Container>
         <div className="hero__wrapper"></div>
       </Container>
