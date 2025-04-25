@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { Image, LikesButton, Preloader, Typography } from "@components/ui";
 import { useTranslation } from "@hooks";
 import Link from "next/link";
-import {fetchMenuData} from "@services/menu-data";
+import { menuStore } from "@/stores/menu-store";
 
 const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
   const router = useRouter();
@@ -81,31 +81,29 @@ const MenuItem = ({ categorySlug, sectionSlug, productData }) => {
 };
 
 export async function getServerSideProps(context) {
-  const restaurantSlug = context.req?.headers['x-restaurant'];
+  const restaurantSlug = context.req?.headers["x-restaurant"];
   const categorySlug = context.params.category;
   const sectionSlug = context.params.section;
   const productSlug = context.params.product;
+  const isPreview = context.req?.headers["x-preview"] === "1";
 
-  let menuData;
   try {
-    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+    await menuStore.loadMenuData(restaurantSlug, isPreview);
   } catch (e) {
-    return {notFound: true};
+    return { notFound: true };
   }
 
-  const category = menuData.categories.find((c) => c.slug === categorySlug);
-  const section = category.sections.find((c) => c.slug === sectionSlug);
-  const product = section.products.find((c) => c.slug === productSlug);
+  const product = menuStore.getProductBySlugs(categorySlug, sectionSlug, productSlug);
 
   if (!product) {
-    return {notFound: true};
+    return { notFound: true };
   }
 
   return {
     props: {
       categorySlug,
       sectionSlug,
-      productData: product
+      productData: product,
     },
   };
 }

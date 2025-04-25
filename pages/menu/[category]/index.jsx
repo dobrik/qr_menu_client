@@ -2,7 +2,7 @@ import Head from "next/head";
 import {MainLayout} from "@layouts";
 import {observer} from "mobx-react-lite";
 import {Menu} from "@pages";
-import {fetchMenuData} from "@services/menu-data";
+import {menuStore} from "@stores/menu-store";
 
 const CategoryPage = observer(({categoryData, menuData}) => {
   return (
@@ -22,23 +22,23 @@ export async function getServerSideProps(context) {
   const restaurantSlug = context.req?.headers['x-restaurant'];
   const categorySlug = context.params.category;
 
-  let menuData;
   try {
-    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+    // Load data via store
+    await menuStore.loadMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
   } catch (e) {
-    return {notFound: true};
+    return { notFound: true };
   }
 
-  const category = menuData.categories.find((c) => c.slug === categorySlug);
+  const category = menuStore.getCategoryBySlug(categorySlug);
 
   if (!category) {
-    return {notFound: true};
+    return { notFound: true };
   }
 
   return {
     props: {
       categoryData: category,
-      menuData,
+      menuData: menuStore.menuData,
     },
   };
 }

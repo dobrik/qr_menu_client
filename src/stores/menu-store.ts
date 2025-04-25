@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { fetchMenuData } from "@/services/menu-data";
 
-class MenuStore {
+class Store {
     menuData = null;
 
     categoryMap = {};
@@ -19,8 +19,8 @@ class MenuStore {
         this.productMap = {};
     }
 
-    async loadMenuData(restaurantSlug) {
-        const data = await fetchMenuData(restaurantSlug);
+    async loadMenuData(restaurantSlug, isPreview = false) {
+        const data = await fetchMenuData(restaurantSlug, isPreview);
         runInAction(() => {
             this.setMenuData(data);
         });
@@ -28,10 +28,6 @@ class MenuStore {
 
     get categories() {
         return this.menuData?.categories || [];
-    }
-
-    get restaurant() {
-        return this.menuData?.restaurant || null;
     }
 
     getCategoryBySlug(categorySlug) {
@@ -80,4 +76,4 @@ class MenuStore {
     }
 }
 
-export const menuStore = new MenuStore();
+export const menuStore = new Store();

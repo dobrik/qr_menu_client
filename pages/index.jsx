@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { MainLayout } from "@layouts";
 import { Home } from "@pages/home";
-import {fetchMenuData} from "@services/menu-data";
 import {observer} from "mobx-react-lite";
+import {menuStore} from "@stores/menu-store";
 
 const Page = observer(({menuData}) => {
   return (
@@ -24,16 +24,16 @@ Page.getLayout = (page) => <MainLayout overflow={false}>{page}</MainLayout>;
 
 export async function getServerSideProps(context) {
   const restaurantSlug = context.req?.headers['x-restaurant'];
-  let menuData;
+
   try {
-    menuData = await fetchMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
+    await menuStore.loadMenuData(restaurantSlug, context.req?.headers['x-preview'] === '1');
   } catch (e) {
-    return {notFound: true};
+    return { notFound: true };
   }
 
   return {
     props: {
-      menuData,
+      menuData: menuStore.menuData,
     },
   };
 }
