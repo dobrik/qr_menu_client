@@ -22,7 +22,7 @@ jobs:
 
       - name: Docker login to DockerHub
         run: |
-          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
       - name: Build and push Docker image
         run: |
