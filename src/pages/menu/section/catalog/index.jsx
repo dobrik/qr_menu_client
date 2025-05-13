@@ -54,7 +54,7 @@ export const Catalog = ({category}) => {
 
           <div className="catalog__content stack column">
             { sections.map((section) => (
-              <div className="catalog__block stack column" key={section.slug}>
+              <div className="catalog__block stack column" key={section.slug} id={section.slug}>
                 <LineWrapper>
                   <Typography tag="h2" variant="h2" weight="700">
                     {section.title}

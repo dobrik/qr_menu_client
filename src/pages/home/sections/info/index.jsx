@@ -154,6 +154,52 @@ export const Info = ({menuData}) => {
             </div>
           </div>
         ))}
+        {!!menuData.socials && Object.entries(menuData.socials).map((social) => (
+          <div key={social[0]} className="info__contact stack column">
+            <div className="info__text stack column">
+              <div className="info__text-wrapper stack align-center">
+                {social[0] === 'instagram' && (
+                  <span>
+                  <img height={32} width={32} src="/img/logo/instagram.png" alt={social[0]}/>
+                </span>
+                )}
+                {social[0] === 'tiktok' && (
+                  <span>
+                  <img height={32} width={32} src="/img/logo/tik-tok.png" alt={social[0]}/>
+                </span>
+                )}
+                {social[0] === 'facebook' && (
+                  <span>
+                  <img height={32} width={32} src="/img/logo/facebook.png" alt={social[0]}/>
+                </span>
+                )}
+                <a href={social[1]}>
+                  <Typography tag="p" variant="p">
+                    {social[1]}
+                  </Typography>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+        { !!menuData.wifi_name && (
+          <div className="info__text stack column">
+
+            <Typography tag="p" variant="p" verticalLine>
+              WIFI
+            </Typography>
+            <div className="info__text-wrapper stack align-center">
+              <Typography tag="p" variant="p" color="dark">
+                {menuData.wifi_name}
+              </Typography>
+              {!!menuData.wifi_password && (
+                <span>
+              {t.common.password}: <b>{menuData.wifi_password}</b>
+             </span>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

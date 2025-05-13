@@ -41,19 +41,19 @@ export const MenuCard = (props) => {
             <Typography className="menu-card__price" tag="span" color="dark">
               {weight} {weight_unit}
             </Typography>
-            <div className="menu-card__rating stack align-center">
-              <Image
-                src="/img/ui/star.svg"
-                width="15"
-                height="15"
-                alt="Rating Star"
-              />
-              <Typography className="" tag="span" variant="p">
-                {5} {/*rating*/}
-              </Typography>
-            </div>
+            {/*<div className="menu-card__rating stack align-center">*/}
+            {/*  <Image*/}
+            {/*    src="/img/ui/star.svg"*/}
+            {/*    width="15"*/}
+            {/*    height="15"*/}
+            {/*    alt="Rating Star"*/}
+            {/*  />*/}
+            {/*  <Typography className="" tag="span" variant="p">*/}
+            {/*    {5} /!*rating*!/*/}
+            {/*  </Typography>*/}
+            {/*</div>*/}
           </div>
-          {allergens && (
+          {allergens && allergens.length > 0 && (
             <div className="menu-card__text stack column">
               <ul className="product__categories stack wrap justify-space-between">
                 {allergens.map((allergen) => (

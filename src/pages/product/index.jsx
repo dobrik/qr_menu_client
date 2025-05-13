@@ -17,7 +17,7 @@ export const Product = ({productData}) => {
       <div className="product__content stack column">
         <div className="product__text stack column">
           <div className="product__row product__name-wrapper stack justify-space-between">
-            <Typography tag="h1" variant="h1" weight="900">
+            <Typography tag="h2" variant="h2" weight="800">
               {title}
             </Typography>
             <LikesButton tag="button" width="36" height="32"/>
@@ -35,17 +35,17 @@ export const Product = ({productData}) => {
             <Typography className="menu-card__price" weight="500" tag="span" color="dark">
               {weight} {weight_unit}
             </Typography>
-            <div className="product__rating stack align-center">
-              <Image
-                src="/img/ui/star.svg"
-                width="15"
-                height="15"
-                alt="Rating Star"
-              />
-              <Typography tag="span" variant="p" weight="500">
-                {5} {/*rating*/}
-              </Typography>
-            </div>
+            {/*<div className="product__rating stack align-center">*/}
+            {/*  <Image*/}
+            {/*    src="/img/ui/star.svg"*/}
+            {/*    width="15"*/}
+            {/*    height="15"*/}
+            {/*    alt="Rating Star"*/}
+            {/*  />*/}
+            {/*  <Typography tag="span" variant="p" weight="500">*/}
+            {/*    {5} /!*rating*!/*/}
+            {/*  </Typography>*/}
+            {/*</div>*/}
           </div>
         </div>
 

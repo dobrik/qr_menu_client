@@ -59,7 +59,7 @@
   }
 
   &__image {
-    max-width: 30rem;
+    max-width: 40rem;
 
     img {
       border-radius: 2rem;
@@ -67,6 +67,7 @@
   }
 
   &__content {
+    width: 100%;
     gap: 1rem;
     border-bottom: 0.1rem solid var(--clr-default-100);
     padding-bottom: 1rem;
